@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <h2>Iniciar Sesión</h2>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contrase&ntilde;a</ion-label>
+    <ion-input [(ngModel)]="clave" type="password"></ion-input>
+  </ion-item>
+  <ion-button (click)="login()">Login</ion-button>
+  <br>
+  <a href="#" [routerLink]="['/registro']">¿No tienes una cuenta?</a>
+</ion-content>
