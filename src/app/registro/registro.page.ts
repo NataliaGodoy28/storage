@@ -16,23 +16,26 @@ export class RegistroPage implements OnInit {
 
   ngOnInit() {
     this.storage.create()
-    if (this.storage.get("usuarios")== null){
-      this.storage.set("usuarios",[])
-    } 
+    this.storage.get("usuarios").then((val) => {
+      if (val == null) {
+        this.storage.set("usuarios", [])
+      }
+    })
   }
 
-  registrar(){
-    this.storage.get("usuarios").then((lista)=>{
-      lista.push ({"email":this.email,
-    "usuario":this.usuario,
-  "clave":this.clave
-})
-this.storage.set("usuarios",lista)
+  registrar() {
+    this.storage.get("usuarios").then((lista) => {
+      lista.push({
+        "email": this.email,
+        "usuario": this.usuario,
+        "clave": this.clave
+      })
+      this.storage.set("usuarios", lista)
     })
 
   }
 
-  mostrar(){
-  console.log(this.storage.get("usuarios"))
-}
+  mostrar() {
+    console.log(this.storage.get("usuarios"))
+  }
 }
